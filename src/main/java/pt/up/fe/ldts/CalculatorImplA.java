@@ -12,7 +12,8 @@ public class CalculatorImplA implements Calculator {
 
     @Override
     public int adds(int x) throws NotImplementedException {
-        throw new NotImplementedException("adds not implemented yet");
+        this.val += x;
+        return this.val;
     }
 
     @Override

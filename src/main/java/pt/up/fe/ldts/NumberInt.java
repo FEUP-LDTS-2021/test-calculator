@@ -2,11 +2,11 @@ package pt.up.fe.ldts;
 
 import pt.up.fe.ldts.exceptions.NotImplementedException;
 
-public class CalculatorImplA implements Calculator {
+public class NumberInt implements NumberOps {
 
     private int val = 0;
 
-    public CalculatorImplA(int val) {
+    public NumberInt(int val) {
         this.val = val;
     }
 
@@ -14,11 +14,6 @@ public class CalculatorImplA implements Calculator {
     public int adds(int x) throws NotImplementedException {
         this.val += x;
         return this.val;
-    }
-
-    @Override
-    public int subtracts(int x) throws NotImplementedException {
-        throw new NotImplementedException("adds not implemented yet");
     }
 
     @Override

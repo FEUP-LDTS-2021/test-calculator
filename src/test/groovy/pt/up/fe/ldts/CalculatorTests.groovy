@@ -6,7 +6,7 @@ class CalculatorTests extends Specification {
 
     def 'testing adds'() {
         given:
-            Calculator cal = new CalculatorImplA(2)
+            NumberOps cal = new NumberInt(2)
 
         when:
             def x = cal.adds(10);

@@ -17,6 +17,14 @@ public class NumberInt implements NumberOps {
     }
 
     @Override
+    public int subtracts(int x) {
+        for (int i  = 0; i < x; i++) {
+            this.val--;
+        }
+        return this.val;
+    }
+
+    @Override
     public int getVal() {
         return val;
     }

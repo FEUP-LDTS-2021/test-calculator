@@ -6,5 +6,7 @@ public interface NumberOps {
 
     public int adds(int x) throws NotImplementedException;
 
+    public int subtracts(int x);
+
     public int getVal();
 }

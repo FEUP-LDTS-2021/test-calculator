@@ -17,7 +17,7 @@ public class NumberInt implements NumberOps {
     }
 
     @Override
-    public int subtracts(int x) throws NotImplementedException {
+    public int subtracts(int x) {
         for (int i  = 0; i < x; i++) {
             this.val--;
         }

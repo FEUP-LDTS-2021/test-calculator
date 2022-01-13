@@ -2,22 +2,22 @@ package pt.up.fe.ldts;
 
 import pt.up.fe.ldts.exceptions.NotImplementedException;
 
-public class NumberInt implements NumberOps<Integer> {
+public class NumberDouble implements NumberOps<Double> {
 
-    private Integer val = 0;
+    private Double val = Double.valueOf(0);
 
-    public NumberInt(Integer val) {
+    public NumberDouble(Double val) {
         this.val = val;
     }
 
     @Override
-    public Integer adds(Integer x) throws NotImplementedException {
+    public Double adds(Double x) throws NotImplementedException {
         this.val += x;
         return this.val;
     }
 
     @Override
-    public Integer subtracts(Integer x) {
+    public Double subtracts(Double x) {
         for (int i  = 0; i < x; i++) {
             this.val--;
         }
@@ -25,7 +25,7 @@ public class NumberInt implements NumberOps<Integer> {
     }
 
     @Override
-    public Integer getVal() {
+    public Double getVal() {
         return val;
     }
 }

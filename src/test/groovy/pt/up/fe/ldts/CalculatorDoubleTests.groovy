@@ -1,24 +1,24 @@
-package pt.up.fe.ldts
+package pt.up.fe.ldts;
 
 import spock.lang.Specification
 
-class CalculatorTests extends Specification {
+class CalculatorDoubleTests extends Specification {
 
     def 'testing adds'() {
         given:
-            NumberOps cal = new NumberInt(2)
+        NumberOps cal = new NumberDouble(Double.valueOf(2))
 
         when:
-            def x = cal.adds(10);
+        def x = cal.adds(10);
 
         then:
-            x == 12
-            cal.getVal() == 12
+        x == 12
+        cal.getVal() == 12
     }
 
     def 'testing subtracting'() {
         given:
-        NumberOps cal = new NumberInt(2)
+        NumberOps cal = new NumberDouble(Double.valueOf(2))
 
         when:
         def x = cal.subtracts(10);
@@ -30,7 +30,7 @@ class CalculatorTests extends Specification {
 
     def 'testing subtracting 0'() {
         given:
-        NumberOps<Integer> cal = new NumberInt(2)
+        NumberOps<Integer> cal = new NumberDouble(Double.valueOf(2))
 
         when:
         def x = cal.subtracts(0);
@@ -40,3 +40,4 @@ class CalculatorTests extends Specification {
         cal.getVal() == 2
     }
 }
+

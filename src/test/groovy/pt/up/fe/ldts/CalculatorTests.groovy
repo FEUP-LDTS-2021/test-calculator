@@ -30,7 +30,7 @@ class CalculatorTests extends Specification {
 
     def 'testing subtracting 0'() {
         given:
-        NumberOps cal = new NumberInt(2)
+        NumberOps<Integer> cal = new NumberInt(2)
 
         when:
         def x = cal.subtracts(0);

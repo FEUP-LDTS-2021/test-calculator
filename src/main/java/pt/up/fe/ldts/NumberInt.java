@@ -18,7 +18,10 @@ public class NumberInt implements NumberOps {
 
     @Override
     public int subtracts(int x) throws NotImplementedException {
-        throw new NotImplementedException("Not implemented yet!");
+        for (int i  = 0; i < x; i++) {
+            this.val--;
+        }
+        return this.val;
     }
 
     @Override

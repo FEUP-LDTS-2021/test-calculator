@@ -11,7 +11,7 @@ public class NumberInt implements NumberOps {
     }
 
     @Override
-    public int adds(int x) throws NotImplementedException {
+    public int adds(int x) {
         this.val += x;
         return this.val;
     }

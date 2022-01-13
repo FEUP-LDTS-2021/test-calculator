@@ -25,7 +25,8 @@ dependencies {
 test {
     useJUnitPlatform {
         includeEngines ('junit-jupiter', 'jqwik')
-    }}
+    }
+}
 
 application {
     mainClass.set("Application")

@@ -2,11 +2,11 @@ package pt.up.fe.ldts;
 
 import pt.up.fe.ldts.exceptions.NotImplementedException;
 
-public interface NumberOps<T> {
+public interface NumberOps<Number> {
 
-    public T adds(T x) throws NotImplementedException;
+    public Number adds(Number x) throws NotImplementedException;
 
-    public T subtracts(T x);
+    public Number subtracts(Number x);
 
-    public T getVal();
+    public Number getVal();
 }

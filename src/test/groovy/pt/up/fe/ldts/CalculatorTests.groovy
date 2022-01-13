@@ -15,4 +15,28 @@ class CalculatorTests extends Specification {
             x == 12
             cal.getVal() == 12
     }
+
+    def 'testing subtracting'() {
+        given:
+        NumberOps cal = new NumberInt(2)
+
+        when:
+        def x = cal.subtracts(10);
+
+        then:
+        x == -8
+        cal.getVal() == -8
+    }
+
+    def 'testing subtracting 0'() {
+        given:
+        NumberOps cal = new NumberInt(2)
+
+        when:
+        def x = cal.subtracts(0);
+
+        then:
+        x == 2
+        cal.getVal() == 2
+    }
 }

@@ -22,7 +22,7 @@ class CalculatorTests extends Specification {
     }
 
     @Property
-    def 'testing adds null property'(@ForAll("genNi") NumberInt ni) {
+    def 'testing adds null property'(@ForAll NumberInt ni) {
         println(ni.getVal())
 
         def x = ni.adds(0)

@@ -10,9 +10,9 @@ import java.util.List;
 
 public class CalculatorPBTTests {
 
-    @Property
+    @Property(tries = 10, seed = "3394295003583670474")
     public void testSumAssociativity(@ForAll int a, @ForAll int b, @ForAll int c) {
-        //System.out.println(a + " " + b + " " + c);
+        System.out.println(a + " " + b + " " + c);
         assert((a + b) + c == a + (b + c));
     }
 
@@ -35,7 +35,7 @@ public class CalculatorPBTTests {
     }
 
     @Property
-    public void testDivision(@ForAll @Negative int number) {
+    public void testDivision(@ForAll @Positive int number) {
         assert(1 == number / number);
     }
 

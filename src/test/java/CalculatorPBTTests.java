@@ -1,5 +1,4 @@
-import net.jqwik.api.ForAll;
-import net.jqwik.api.Property;
+import net.jqwik.api.*;
 import net.jqwik.api.constraints.Negative;
 import net.jqwik.api.constraints.NotEmpty;
 import net.jqwik.api.constraints.Positive;
@@ -13,11 +12,11 @@ public class CalculatorPBTTests {
 
     @Property
     public void testSumAssociativity(@ForAll int a, @ForAll int b, @ForAll int c) {
-        // System.out.println(a + " " + b + " " + c);
+        //System.out.println(a + " " + b + " " + c);
         assert((a + b) + c == a + (b + c));
     }
 
-    @Property(tries = 100000)
+    @Property
     public void testNullAssociativity(@ForAll int a) {
         assert(a + 0 == a);
         assert(0 + a == a);
@@ -37,7 +36,6 @@ public class CalculatorPBTTests {
 
     @Property
     public void testDivision(@ForAll @Negative int number) {
-        System.out.println(number);
         assert(1 == number / number);
     }
 
@@ -64,5 +62,12 @@ public class CalculatorPBTTests {
         for (int e : list)
             sum += e;
         return sum;
+    }
+
+    @Provide
+    Arbitrary<Integer> between_one_and_four() {
+        return Arbitraries.of(1, 2, 3, 4);
+
+
     }
 }

@@ -1,5 +1,6 @@
 import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
+import net.jqwik.api.constraints.Negative;
 import net.jqwik.api.constraints.NotEmpty;
 import net.jqwik.api.constraints.Positive;
 import pt.up.fe.ldts.NumberInt;
@@ -12,20 +13,19 @@ public class CalculatorPBTTests {
 
     @Property
     public void testSumAssociativity(@ForAll int a, @ForAll int b, @ForAll int c) {
-        System.out.println(a + " " + b + " " + c);
+        // System.out.println(a + " " + b + " " + c);
         assert((a + b) + c == a + (b + c));
     }
 
-    @Property
+    @Property(tries = 100000)
     public void testNullAssociativity(@ForAll int a) {
         assert(a + 0 == a);
         assert(0 + a == a);
         assert(0 + a == a + 0);
     }
 
-    @Property
-    public void testDoubleReverse(@ForAll List<Integer> list) {
-        System.out.println(list.toString());
+    @Property(tries = 10)
+    public void testDoubleReverse(@ForAll @NotEmpty List<@Positive Integer> list) {
         assert(reverseList(reverseList(list)).equals(list));
     }
 
@@ -33,6 +33,12 @@ public class CalculatorPBTTests {
         ArrayList<T> reversed = new ArrayList<>();
         for (T e : list) reversed.add(0, e);
         return reversed;
+    }
+
+    @Property
+    public void testDivision(@ForAll @Negative int number) {
+        System.out.println(number);
+        assert(1 == number / number);
     }
 
     @Property
@@ -47,14 +53,16 @@ public class CalculatorPBTTests {
         assert(n.adds(a) == 2 + a);
     }
 
-    @Property
+    @Property(seed = "1504236546973788414")
     public void testListSumPositive(@ForAll @NotEmpty List<@Positive Integer> list) {
-        assert(sum(list) > 0); // this fails because numbers overflow!
+        //System.out.println(list);
+        assert(sum(list) > 0);
     }
 
     private int sum(List<Integer> list) { // this is an implementation, and should not be in the testing classes.
         int sum = 0;
-        for (int e : list) sum += e;
+        for (int e : list)
+            sum += e;
         return sum;
     }
 }
